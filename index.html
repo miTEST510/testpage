@@ -37,41 +37,7 @@
 
         <!-- 今度こそメイン -->
         <div class="page">
-        
-
-            <a id="html_con"><b>■HTML</b></a><br>
-            <div class="kuro sourceview">
-                <pre class="brush: html;">
-●python（userテーブルに格納）
-
-@app.route("/login", methods=["GET", "POST"])
-def login():
-
-    if request.method == "GET":
-        if 'user_id' in session:
-            return redirect("/")
-        else:
-            return render_template("login.html")
-
-    else:
-        name = request.form.get("name")
-        password = request.form.get("password")
-        conn = sqlite3.connect('database.db')
-        c = conn.cursor()
-        c.execute("select id from user where name = ? and password = ?", (name, password))
-        user_id = c.fetchone()
-        conn.close()
-        if user_id is None:
-            return render_template("login.html")
-        else:
-            session['user_id'] = user_id[0]
-            return redirect("/飛ばしたいページ")</pre>
-            </div>
-            <br><br><br>
-
-
-
-
+     
             <a id="vba_con"><b>■VBA
             </b></a><br>
             <div class="kuro sourceview">
