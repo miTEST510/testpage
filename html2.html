@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/ツール用css.css" rel="stylesheet" type="text/css" media="all">
+    <title>ダイスボット作成ツール</title>
+</head>
+
+<body class="body_DiceBot">
+
+    <div class="DiceBotTool">
+        <input type="button" value="Choice作成" onclick="ChoiceBotCreate();" class="DiceBotUnderButton">
+        <input type="button" value="ダイスボット作成" onclick="DiceBotCreate();" class="DiceBotUnderButton">
+        <input type="text" id="DiceBotResult" value="1d"><br>
+        <textarea cols="60" rows="40" style="padding: 5px;" id="DicebotText"></textarea><br>
+
+        <script>
+            // choice作成
+            function ChoiceBotCreate() {
+                var ChoiceBaseText = document.getElementById('DicebotText').value;
+                var ChoiceMake = ChoiceBaseText.replace(new RegExp("\n", 'g'), ",");
+                var ChoiceBotEdit = "choice[" + ChoiceMake + "]";
+                document.getElementById('DicebotText').value = ChoiceBotEdit;
+            }
+        </script>
+
+        <script>
+            // ダイスボット作成
+            function DiceBotCreate() {
+                // textareaの内容を改行で分割して配列に格納
+                var DiceBotArray = document.getElementById('DicebotText').value.split("\n");
+                // 各行を対象にして処理
+                var DiceBotEdit = "";
+                for (var i = 0; i < DiceBotArray.length; i++) {
+                    if (!(i == DiceBotArray.length - 1 && DiceBotArray[i].length == 0)) {
+                        // 「最後の空行」以外なら処理(＝先頭に文字列を追加)を行う
+                        DiceBotEdit += (i + 1) + ": " + DiceBotArray[i] + "\n";
+                    }
+                }
+                // 編集したテキストをテキストエリアに戻す
+                document.getElementById('DicebotText').value = DiceBotEdit;
+
+                // 何d何になるのか記載する
+                // ※改行しちゃうとそれも+1されちゃうので注意
+                var DiceNum = "1d" + i;
+                document.getElementById('DiceBotResult').value = DiceNum;
+            }
+        </script>
+
+        <script>
+            //ダイスボット削除
+            function DiceBotdelete() {
+                // textareaの内容を改行で分割して配列に格納
+                var DiceBotArray = document.getElementById('DicebotText').value.split("\n");
+                // 各行を対象にして処理
+                var DiceBotEdit = "";
+                for (var i = 0; i < DiceBotArray.length; i++) {
+                    if (!(i == DiceBotArray.length - 1 && DiceBotArray[i].length == 0)) {
+                        // 「最後の空行」以外なら処理(＝: の削除処理)を行う 
+                        var cut = DiceBotArray[i].substr(DiceBotArray[i].indexOf(': ') + 2);
+                        DiceBotEdit += cut + "\n";
+                    }
+                } // 編集したテキストをテキストエリアに戻す
+                document.getElementById('DicebotText').value = DiceBotEdit;
+            }
+        </script>
+
+        <script>
+            //空白の跡を削除ボタン
+            function DiceBotadd1() {
+                // textareaの内容を改行で分割して配列に格納
+                var DiceBotArray = document.getElementById('DicebotText').value.split("\n");
+                // 各行を対象にして処理
+                var DiceBotEdit = "";
+                for (var i = 0; i < DiceBotArray.length; i++) {
+                    if (!(i == DiceBotArray.length - 1 && DiceBotArray[i].length == 0)) {
+                        // 「最後の空行」以外なら処理(＝空白より後を削除)を行う 
+                        var cut = DiceBotArray[i].substr(0, DiceBotArray[i].indexOf('　'));
+                        DiceBotEdit += cut + "\n";
+                    }
+                } // 編集したテキストをテキストエリアに戻す
+                document.getElementById('DicebotText').value = DiceBotEdit;
+            }
+
+            //一時的に追加ボタン
+            function DiceBotadd2() {
+                // textareaの内容を改行で分割して配列に格納
+                var DiceBotArray = document.getElementById('DicebotText').value.split("\n");
+                // 各行を対象にして処理
+                var DiceBotEdit = "";
+                for (var i = 0; i < DiceBotArray.length; i++) {
+                    if (!(i == DiceBotArray.length - 1 &&
+                            DiceBotArray[i].length == 0)) {
+                        // 「最後の空行」以外なら処理(＝先頭に文字列を追加)を行う 
+                        DiceBotEdit += DiceBotArray[i] + "：《CON*》" +
+                            "\n";
+                    }
+                } // 編集したテキストをテキストエリアに戻す
+                document.getElementById('DicebotText').value = DiceBotEdit;
+            }
+
+
+            //空白の跡を削除ボタン
+            function DiceBotadd1() {
+                // textareaの内容を改行で分割して配列に格納
+                var DiceBotArray = document.getElementById('DicebotText').value.split("\n");
+                // 各行を対象にして処理
+                var DiceBotEdit = "";
+                for (var i = 0; i < DiceBotArray.length; i++) {
+                    if (!(i == DiceBotArray.length - 1 && DiceBotArray[i].length ==
+                            0)) { // 「最後の空行」以外なら処理(＝空白より後を削除)を行う 
+                        var cut = DiceBotArray[i].substr(0, DiceBotArray[i].indexOf(''));
+                        DiceBotEdit += cut + "\n";
+                    }
+                } // 編集したテキストをテキストエリアに戻す
+                document.getElementById('DicebotText').value = DiceBotEdit;
+            }
+        </script>
+    </div>
+
+    <script>
+        // 酒用ボタン
+        function sakebutton() {
+            // textareaの内容を改行で分割して配列に格納
+            var DiceBotArray = document.getElementById('DicebotText').value.split("\n");
+            // 各行を対象にして処理
+            var DiceBotEdit = "";
+            for (var i = 0; i < DiceBotArray.length; i++) {
+                if (!(i == DiceBotArray.length - 1 && DiceBotArray[i].length == 0)) {
+                    var textChange = DiceBotArray[i].replace(/：/g, '<br><span class="text_small">');
+
+                    DiceBotEdit += ('<div class="texttest">' + textChange + '</span><br></div><br>' + "\n");
+                }
+                // 編集したテキストをテキストエリアに戻す
+                document.getElementById('DicebotText').value = DiceBotEdit;
+            }
+        }
+    </script>
+
+
+
+</body>
+
+</html>

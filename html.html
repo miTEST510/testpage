@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./css/汎用CSS.css" rel="stylesheet" type="text/css" media="all">
+    <script src="./js/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="./js/汎用js.js"></script>
+    <script src="./js/clipboard.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&display=swap" rel="stylesheet">
+    <title>Tools</title>
+</head>
+
+<body>
+
+
+    <!-- 欲しいツール：★ダイスボット作成 ★名前変換 よく使うテキストコピペ 戦闘のとき使う奴 対抗ロール、db計算 るるぶ参考ページ シナリオ差し替え？-->
+    <div class="display_all">
+        <div class="Split Left">
+            <div class="info">
+
+                <!-- 上部ボタン -->
+
+                <!-- テキストエリア -->
+                <textarea cols="60" rows="27" style="padding: 5px;" id="TextArea01"></textarea><br>
+                <textarea cols="60" rows="12" style="padding: 5px;" id="TextArea02"></textarea>
+            </div>
+        </div>
+
+        <div class="Split Right">
+            <div class="info">
+
+                <!-- メニュー一覧 -->
+                <ul class="MenuListAll">
+
+                    <li class="MainMenu_List">
+                        <a class="MenuTitle JSMenuAction" href="">ワード変換</a>
+                        <ul class="submenu sub_change_menu">
+                            <li class="List_Change_Title">
+                                <a><input type="text" size="5" id="PCName01" value="">→<input type="text" size="10"
+                                        id="NameChange01" value=""></a>
+                            </li>
+                            <li class="List_Change_Title">
+                                <a><input type="text" size="5" id="PCName02" value="">→<input type="text" size="10"
+                                        id="NameChange02" value=""></a>
+                            </li>
+                            <li class="List_Change_Title">
+                                <a><input type="text" size="5" id="PCName03" value="">→<input type="text" size="10"
+                                        id="NameChange03" value=""></a>
+                            </li>
+                            <li class="List_Change_Title">
+                                <a><input type="text" size="5" id="PCName04" value="">→<input type="text" size="10"
+                                        id="NameChange04" value=""></a>
+                            </li>
+                            <li class="List_Change_Title">
+                                <a><input type="button" value="変換" onclick="PCNameChange();"
+                                        class="NameChangeButton"></a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <script>
+                        一時的狂気_変数1(); //一時的狂気リスト呼び出し
+                        var clipboard_List = new ClipboardJS('.copy_List');
+                        var clipboard_Battle = new ClipboardJS('.copy_Battle01');
+                        var clipboard_Battle = new ClipboardJS('.copy_Battle02');
+                    </script>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

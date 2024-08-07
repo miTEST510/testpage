@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* ダイスボット用 */
+.body_DiceBot {
+    background-image: url(../画像/AdobeStock_135589267.jpeg);
+    background-size: 300%;
+    background-repeat: no-repeat;
+}
+
+.DiceBotTool {
+    margin: 30px 0 0 30px;
+}
+
+
+
+.DiceBotUnderButton {
+    width: 130px;
+}
+
+#DiceBotResult {
+    height: 15px;
+}
+
+#DicebotText {
+    margin-top: 5px;
+}

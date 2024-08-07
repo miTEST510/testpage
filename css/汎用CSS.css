@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url(../画像/AdobeStock_23686327.jpeg);
+    background-size: cover;
+    /* font-family: 'Kaisei Decol', serif; */
+
+}
+
+/* 画面を左右に分割 -------------------------------- */
+.display_all {
+    display: flex;
+}
+
+.Left {
+    margin: 30px 30px 0;
+}
+
+.Right {
+    margin: 35px 0 0;
+}
+
+/* ボタン */
+.Tools_Button {
+    margin-bottom: 5px;
+    width: 130px;
+}
+
+#TextArea01,
+#TextArea02 {
+    line-height: 1.3em;
+}
+
+
+
+
+/* アコーディオンメニュー -------------------------------- */
+ul {
+    list-style: none;
+}
+
+ul a {
+    text-decoration: none;
+}
+
+.MainMenu_List {
+
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    margin-bottom: 10px;
+    position: relative;
+    font-weight: bold;
+    text-align: center;
+}
+
+.MainMenu_List a.MenuTitle:hover {
+    background-color: #67ebe0dc;
+}
+
+.MainMenu_List a:active {
+    -webkit-transform: translateY(2px);
+    transform: translateY(2px);
+}
+
+.MenuTitle {
+    background: #34ccbfd5;
+    /* background: #142585d5; */
+    color: #fff;
+    display: block;
+    width: 250px;
+    padding: 7px 0;
+
+}
+
+.sub_nomalcss_menu {
+    color: rgba(0, 12, 173, 1);
+    display: none;
+    width: 240px;
+    margin-left: 5px;
+
+}
+
+.ListTitle {
+    background: rgba(255, 255, 255, 0.774);
+    padding: 2px;
+    margin-top: 5px;
+}
+
+.ListTitle:hover {
+    background-color: #eef6ff;
+}
+
+.ListTitle:active {
+    -webkit-transform: translateY(2px);
+    transform: translateY(2px);
+}
+
+.ListTitle a {
+    color: rgba(0, 12, 173, 1);
+}
+
+/* ワード変換のところ */
+.sub_change_menu {
+    display: none;
+    width: 240px;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+.List_Change_Title {
+    background: rgba(255, 255, 255, 0.301);
+    padding: 2px;
+
+}
+
+.NameChangeButton {
+    width: 50px;
+}
